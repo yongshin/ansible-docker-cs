@@ -7,26 +7,40 @@ Docker Engine.
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Access to the internet. The playbook will reach out to
+<https://packages.docker.com>.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Parameter            | Required | Default  | Description                                               |
+| -------------------- | -------- | -------- | --------------------------------------------------------- |
+| docker_version       | no       | 1.11     | The version of CS Engine you want to install (1.10, 1.11) |
+| docker_engine_labels | no       |          | A map of labels for this engine                           |
+| docker_bind_socket   | no       | true     | Should the engine bind to the Docker socket               |
+| docker_bind_ip       | no       |          | Should the engine bind to an ip address                   |
+| docker_port          | no       | 2375     | IP port the engine should bind to                         |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Simple example that includes a couple of labels.
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+``` yaml
+- hosts: all
+  become: true
+  vars:
+    docker_engine_labels:
+      storage: ssd
+      location: rack1
+  roles:
+    - cs_engine
+```
 
 License
 -------
@@ -36,4 +50,4 @@ Apache 2.0
 Author Information
 ------------------
 
-Chad Metcalf <metcalfc@gmail.com>
+Chad Metcalf <mailto:metcalfc@gmail.com>
