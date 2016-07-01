@@ -1,3 +1,6 @@
 ---
 docker_version: 1.11
 docker_engine_labels: {}
+docker_bind_socket: true
+docker_bind_ip: ""
+docker_port: 2375

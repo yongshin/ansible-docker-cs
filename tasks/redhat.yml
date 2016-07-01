@@ -15,17 +15,11 @@
     name: docker-engine
     state: present
 
-- name: rpm | Configure the Docker engine
-  template:
-    src: config.j2
-    dest: "{{docker_config}}"
-  notify: restart docker-engine
-
 - name: rpm | Make systemd override directory
   file:
     path: /etc/systemd/system/docker.service.d
     state: directory
-    
+
 - name: rpm | Add systemd override
   copy:
     src: docker.service
@@ -33,3 +27,9 @@
     owner: root
     group: root
     mode: 0644
+
+- name: rpm | Configure the Docker engine
+  template:
+    src: config.j2
+    dest: "{{docker_config}}"
+  notify: restart docker-engine
