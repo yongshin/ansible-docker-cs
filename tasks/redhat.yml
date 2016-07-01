@@ -1,5 +1,5 @@
 ---
-- name: Install Docker CS repository
+- name: rpm | Install Docker CS repository
   yum_repository:
     name: docker
     description: Docker CS Packages
