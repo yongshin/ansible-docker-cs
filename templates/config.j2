@@ -1,0 +1,2 @@
+LABELS='{% for key, value in docker_engine_labels.iteritems() %}--label {{key}}={{value}}{% if not loop.last %} {% endif %}{% endfor %}'
+DOCKER_OPTS={% if docker_selinux |default(false) %}--selinux-enabled {% endif %}

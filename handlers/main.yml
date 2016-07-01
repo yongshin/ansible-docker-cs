@@ -1,2 +1,3 @@
 ---
-# handlers file for cs_engine
+ - name: restart docker-engine
+   service: "name={{ docker_daemon }} state=restarted"
