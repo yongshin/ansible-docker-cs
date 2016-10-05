@@ -16,6 +16,7 @@ Role Variables
 | Parameter            | Required | Default  | Description                                               |
 | -------------------- | -------- | -------- | --------------------------------------------------------- |
 | docker_version       | no       | 1.11     | The version of CS Engine you want to install (1.10, 1.11) |
+| docker_repo          | no       | main     | The repo to install CS Engine from (testing, main, etc)   |
 | docker_engine_labels | no       |          | A map of labels for this engine                           |
 | docker_bind_socket   | no       | true     | Should the engine bind to the Docker socket               |
 | docker_bind_ip       | no       |          | Should the engine bind to an ip address                   |
