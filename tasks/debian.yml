@@ -21,7 +21,7 @@
 
 - name: deb | Install Docker CS repository
   apt_repository:
-    repo: "deb [arch=amd64] https://packages.docker.com/{{docker_version}}/apt/repo {{ansible_distribution|lower}}-{{ansible_distribution_release}} main"
+    repo: "deb [arch=amd64] https://packages.docker.com/{{docker_version}}/apt/repo {{ansible_distribution|lower}}-{{ansible_distribution_release}} {{docker_repo}}"
     state: present
     filename: docker
 
